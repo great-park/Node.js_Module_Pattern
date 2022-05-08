@@ -1,0 +1,10 @@
+.idea/*
+node_modules/*
+package-lock.json
+log/*
+.DS_Store
+config/secret.js
+config/winston.js
+config/baseResponseStatus.js
+config/response.js
+config/jwtMiddleware.js
