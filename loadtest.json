@@ -3,8 +3,9 @@
         "target": "http://localhost:3000",
         "phases": [
             {
-                "duration": 60,
-                "arrivalRate": 30
+                "duration": 30,
+                "arrivalRate": 1000,
+                "name" : "3 example request"
             }
         ]
     },
