@@ -75,7 +75,7 @@ server.listen(port, () => {
 
 config/express 에서 require로 가져온 뒤, server에 담고 여기에 listen 메소드를 붙여 서버를 실행 중이다. api 개발에 필요한 기본적인 express의 설정들은 config 내에서 이뤄졌기 때문에 가독성이 훨씬 좋아졌다.
 
-서버를 실행시키면, 우리의 서버는 3000번 포트를 통해 리스닝 중이며, 아무런 오류가 없다면 설정해둔 콜백이 실행되면서 “Server Is Running At Port 3003”이 콘솔에 찍힐 것이다.
+서버를 실행시키면, 우리의 서버는 3003번 포트를 통해 리스닝 중이며, 아무런 오류가 없다면 설정해둔 콜백이 실행되면서 “Server Is Running At Port 3003”이 콘솔에 찍힐 것이다.
 
 ### 3\. config
 
