@@ -2,6 +2,7 @@ const shopDao = require("../dao/shopDao");
 const baseResponse = require("../../config/baseResponseStatus");
 const { response, errResponse } = require("../../config/response");
 const { pool } = require("../../config/database");
+const schedule = require("node-schedule");
 
 // 1. 전체 가게 조회
 exports.getAllShop = async function (req, res) {
@@ -29,8 +30,14 @@ exports.postShop = async function (req, res) {
   /**
    * Body: shopType, location, shopLongitude, shopLatitude, shopDescription
    */
-  const { shopType, location, shopLongitude, shopLatitude, shopDescription } =
-    req.body;
+  const {
+    shopType,
+    location,
+    shopLongitude,
+    shopLatitude,
+    shopDescription,
+    date,
+  } = req.body;
 
   // 필수 값 : 빈 값 체크
   if (!shopType) return res.send(response(baseResponse.SHOP_TYPE_EMPTY));
@@ -52,6 +59,24 @@ exports.postShop = async function (req, res) {
   const connection = await pool.getConnection(async (conn) => conn);
   const postShopResponse = await shopDao.postShop(connection, postShopParams);
   connection.release();
+
+  const KSTDate = new Date(date);
+  console.log("KST : ", KSTDate);
+  const UTCDate = new Date(KSTDate + 9 * 60 * 60 * 1000);
+  console.log("UTC : ", UTCDate);
+
+  const timeCheck = schedule.scheduleJob("* * * * *", () => {
+    const x = new Date(Date.now());
+    console.log(x);
+  });
+
+  let cnt = 0;
+
+  const job = schedule.scheduleJob(UTCDate, () => {
+    console.log(location);
+
+    console.log("else");
+  });
 
   return res.send(response(baseResponse.SUCCESS));
 };
