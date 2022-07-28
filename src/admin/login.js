@@ -39,8 +39,6 @@ async function login() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
-        console.log(json.url);
         if (json.url != "false") {
           alert("로그인 성공");
           location.href = "/" + json.url;
