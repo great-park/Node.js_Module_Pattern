@@ -28,9 +28,10 @@ module.exports = function () {
    */
   app.use(cors());
 
-  require("../resource/routes/shopRoute")(app);
-  require("../resource/routes/authorRoute")(app);
-  require("../resource/routes/reviewRoute")(app);
+  require("../src/routes/shopRoute")(app);
+  require("../src/routes/authorRoute")(app);
+  require("../src/routes/reviewRoute")(app);
+  require("../src/admin/adminRoute")(app);
 
   return app;
 };

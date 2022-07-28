@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development node index.js",
+    "dev": "nodemon ./resource/index.js",
     "prod": "NODE_ENV=production node index.js"
   },
   "author": "",
@@ -19,9 +19,12 @@
     "method-override": "^3.0.0",
     "mysql2": "^2.0.0",
     "node-schedule": "^2.1.0",
-    "nodemon": "^2.0.7",
     "regex-email": "^1.0.2",
+    "startbootstrap-sb-admin-2": "^4.1.4",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }
